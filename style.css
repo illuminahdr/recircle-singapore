@@ -116,17 +116,30 @@ a {
 }
 
 /* Style for the account button used in place of the user icon */
+/*
+  Account button styling
+  Give the account button a pill‑shaped outline with a soft background to
+  distinguish it from plain navigation links. The button uses the secondary
+  colour for its background and darkens slightly on hover. A subtle border
+  radius and padding create a modern, minimalist appearance similar to
+  premium tech sites.
+*/
 .account-button {
-  background: none;
-  border: none;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
   color: var(--primary-color);
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .account-button:hover {
-  color: var(--primary-dark);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #fff;
 }
 
 /* Additional informational sections */

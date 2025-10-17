@@ -16,6 +16,24 @@ function saveUsers(users) {
   localStorage.setItem('recircle_users', JSON.stringify(users));
 }
 
+// Update navigation based on whether a user is logged in. This shows or
+// hides the account, login and logout links accordingly.
+function updateNav() {
+  const currentUser = localStorage.getItem('recircle_current_user');
+  const navLogin = document.getElementById('nav-login');
+  const navDashboard = document.getElementById('nav-dashboard');
+  const navLogout = document.getElementById('nav-logout');
+  if (currentUser) {
+    if (navDashboard) navDashboard.style.display = '';
+    if (navLogout) navLogout.style.display = '';
+    if (navLogin) navLogin.style.display = 'none';
+  } else {
+    if (navDashboard) navDashboard.style.display = 'none';
+    if (navLogout) navLogout.style.display = 'none';
+    if (navLogin) navLogin.style.display = '';
+  }
+}
+
 // Handle authentication form submission
 const authForm = document.getElementById('auth-form');
 if (authForm) {
@@ -116,12 +134,14 @@ function loadDashboard() {
       }
     });
   });
-  // Logout link
-  const logoutLink = document.getElementById('logout-link');
+  // Logout link (shared nav item)
+  const logoutLink = document.getElementById('nav-logout');
   if (logoutLink) {
     logoutLink.addEventListener('click', (e) => {
       e.preventDefault();
+      // clear current user and update nav
       localStorage.removeItem('recircle_current_user');
+      updateNav();
       window.location.href = 'index.html';
     });
   }
@@ -134,6 +154,9 @@ if (document.body.classList.contains('dashboard')) {
 
 // Alternatively, detect by presence of user-name element
 document.addEventListener('DOMContentLoaded', () => {
+  // Update navigation on every page load
+  updateNav();
+  // If on dashboard page or there is a user-name element, initialise dashboard
   if (document.getElementById('user-name')) {
     loadDashboard();
   }

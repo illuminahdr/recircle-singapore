@@ -6,12 +6,13 @@
 */
 
 :root {
-  --primary-color: #009e60; /* a green shade representing sustainability */
-  --primary-dark: #007b48;
-  --secondary-color: #f4f7f6;
-  --text-color: #333;
-  --accent-color: #ffbf00; /* accent for important elements */
-  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* Updated palette to evoke a clean, modern look inspired by Samsung/Apple UIs */
+  --primary-color: #007aff; /* iOS blue accent */
+  --primary-dark: #005bb5; /* darker blue for hover states */
+  --secondary-color: #f7f7f7; /* very light grey for sections */
+  --text-color: #1c1c1e; /* near‑black for high contrast */
+  --accent-color: #ff9500; /* warm accent for highlights */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 /* Reset some defaults */

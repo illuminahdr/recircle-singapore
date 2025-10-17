@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReCircle Singapore – Smart Recycling</title>
+    <!-- Load a simple CSS reset and the custom stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome icons for simple visuals (loaded from a reliable CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pk41OnDRmC47X9qZSfukl37VcN4lZJ5pAzDLA1UIJzO23zKJM8dVN/v7fAByq5BKw9mR0Ej6NmQygcn4eX+icA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">ReCircle Singapore</h1>
+        <nav class="navigation">
+          <a href="index.html" class="nav-link active">Home</a>
+          <a href="login.html" class="nav-link">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section -->
+      <section class="hero">
+        <div class="container">
+          <h2 class="hero-title">Smart Recycling for a Low‑Waste City</h2>
+          <p class="hero-subtitle">
+            Convenient, rewarding, and trusted recycling: place – scan – earn –
+            verify.
+          </p>
+          <a href="login.html" class="button primary">Get Started</a>
+        </div>
+      </section>
+
+      <!-- Features section -->
+      <section class="features">
+        <div class="container">
+          <h3 class="section-title">How It Works</h3>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <i class="fas fa-recycle feature-icon" aria-hidden="true"></i>
+              <h4>Smart Kiosks</h4>
+              <p>
+                Deposit bottles, cans and clean plastics at walkable kiosks. Each
+                item is weighed and scanned to issue verified credits.
+              </p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-mobile-alt feature-icon" aria-hidden="true"></i>
+              <h4>Track Your Credits</h4>
+              <p>
+                Sign in to view your deposit history, collect points and compete
+                on leaderboards. Challenges and badges keep recycling fun.
+              </p>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-gift feature-icon" aria-hidden="true"></i>
+              <h4>Redeem Rewards</h4>
+              <p>
+                Exchange your points for transport vouchers, retail discounts
+                and community perks. Rewards are verified and fraud‑free.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impact section -->
+      <section class="impact">
+        <div class="container">
+          <h3 class="section-title">Our Pilot Impact</h3>
+          <div class="impact-grid">
+            <div class="impact-item">
+              <strong>15</strong>
+              <span>kiosks deployed</span>
+            </div>
+            <div class="impact-item">
+              <strong>9 tonnes</strong>
+              <span>recyclables diverted/year</span>
+            </div>
+            <div class="impact-item">
+              <strong>5 000+</strong>
+              <span>registered users</span>
+            </div>
+          </div>
+          <p class="impact-text">
+            Together with town councils, schools and community partners, we’re
+            building a cleaner, low‑waste city. Join us to make a difference!
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <!-- (c) will show the current year via JS; fallback to 2025 if JS is disabled -->
+          <span id="year">2025</span> ReCircle Singapore. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Set current year in footer for convenience
+      document.addEventListener('DOMContentLoaded', () => {
+        const yearSpan = document.getElementById('year');
+        yearSpan.textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>

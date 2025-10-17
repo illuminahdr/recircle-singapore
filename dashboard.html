@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – ReCircle Singapore</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pk41OnDRmC47X9qZSfukl37VcN4lZJ5pAzDLA1UIJzO23zKJM8dVN/v7fAByq5BKw9mR0Ej6NmQygcn4eX+icA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">ReCircle Singapore</h1>
+        <nav class="navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="#" class="nav-link" id="logout-link">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="dashboard-main">
+      <div class="container dashboard-container">
+        <h2 class="section-title">Welcome, <span id="user-name"></span>!</h2>
+        <p class="points-display">
+          You currently have <strong id="points-count"></strong> points.
+        </p>
+        <div class="points-actions">
+          <button class="button primary" id="add-points-btn">
+            Add Points
+          </button>
+          <button class="button secondary" id="redeem-btn">
+            Redeem Voucher
+          </button>
+        </div>
+        <div class="voucher-section" id="voucher-section" hidden>
+          <h3>Available Rewards</h3>
+          <ul class="voucher-list">
+            <li>
+              <strong>Transit Voucher</strong> – 50 points
+              <button class="button outline redeem-option" data-cost="50">
+                Redeem
+              </button>
+            </li>
+            <li>
+              <strong>Retail Discount</strong> – 75 points
+              <button class="button outline redeem-option" data-cost="75">
+                Redeem
+              </button>
+            </li>
+            <li>
+              <strong>Community Event Pass</strong> – 100 points
+              <button class="button outline redeem-option" data-cost="100">
+                Redeem
+              </button>
+            </li>
+          </ul>
+          <p id="redeem-message" class="redeem-message"></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year">2025</span> ReCircle Singapore. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // initialise year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

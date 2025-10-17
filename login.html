@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login – ReCircle Singapore</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pk41OnDRmC47X9qZSfukl37VcN4lZJ5pAzDLA1UIJzO23zKJM8dVN/v7fAByq5BKw9mR0Ej6NmQygcn4eX+icA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <h1 class="logo">ReCircle Singapore</h1>
+        <nav class="navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="login.html" class="nav-link active">Login</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="auth-main">
+      <div class="container auth-container">
+        <h2 class="section-title">Sign In / Register</h2>
+        <form id="auth-form" class="auth-form" autocomplete="off">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+          <div class="form-buttons">
+            <button type="submit" class="button primary">Log In</button>
+          </div>
+          <p class="form-note">
+            New to ReCircle? Just choose a username and password and we'll
+            create your account.
+          </p>
+        </form>
+        <p id="auth-message" class="auth-message"></p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; <span id="year">2025</span> ReCircle Singapore. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // set the year on load
+        document.getElementById('year').textContent = new Date().getFullYear();
+      });
+    </script>
+  </body>
+</html>

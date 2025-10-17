@@ -547,8 +547,11 @@ a {
   color: var(--primary-color);
 }
 
+/* Center the QR code within the reward card by using flexbox */
 .qr-code {
   margin: 1rem auto;
+  display: flex;
+  justify-content: center;
 }
 
 .remaining-points-text {

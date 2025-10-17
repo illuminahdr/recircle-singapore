@@ -110,6 +110,25 @@ a {
   background-color: var(--secondary-color);
 }
 
+/* Position the user/account menu to the far right of the nav */
+.navigation .user-menu {
+  margin-left: auto;
+}
+
+/* Style for the account button used in place of the user icon */
+.account-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.account-button:hover {
+  color: var(--primary-dark);
+}
+
 /* Additional informational sections */
 .vision,
 .join {

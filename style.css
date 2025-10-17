@@ -140,13 +140,15 @@ a {
 }
 
 .hero-title {
-  font-size: 2rem;
+  /* Increase hero heading size to create a dramatic opening similar to
+     premium product pages */
+  font-size: 2.4rem;
   margin-bottom: 0.5rem;
   color: var(--primary-dark);
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 1.5rem;
   color: var(--text-color);
 }
@@ -260,6 +262,52 @@ a {
   max-width: 600px;
   margin: 0 auto;
   color: var(--text-color);
+}
+
+/*
+  Full-width feature sections for an immersive, storytelling experience similar
+  to premium product pages. These sections use large icons and spacious
+  layouts to draw the eye and guide visitors through the key benefits of
+  ReCircle. Alternate background colours on even sections help delineate
+  separate topics as the user scrolls.
+*/
+.feature-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 4rem 1rem;
+  gap: 2rem;
+}
+
+.feature-full .icon-container {
+  flex: 0 0 200px;
+  text-align: center;
+}
+
+.feature-full .icon-container i {
+  font-size: 4rem;
+  color: var(--primary-color);
+}
+
+.feature-full .text-container {
+  max-width: 600px;
+}
+
+.feature-full .text-container h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+  color: var(--primary-dark);
+}
+
+.feature-full .text-container p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.feature-full.even {
+  background-color: var(--secondary-color);
 }
 
 /* Auth (login) styles */

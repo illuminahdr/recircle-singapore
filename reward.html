@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reward – ReCircle Singapore</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- QRCode library for generating QR codes client‑side -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="index.html" class="logo">ReCircle Singapore</a>
+        <nav class="navigation">
+          <a href="index.html" class="nav-link">Home</a>
+          <!-- User account dropdown similar to other pages -->
+          <div class="user-menu">
+            <button id="user-menu-toggle" class="account-button">Account</button>
+            <div id="user-menu" class="user-dropdown">
+              <a href="dashboard.html" id="menu-account">Account</a>
+              <a href="login.html" id="menu-login">Login</a>
+              <a href="#" id="menu-logout">Logout</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container reward-container">
+        <h2>Reward Claimed!</h2>
+        <p class="reward-code-label">Your reward code:</p>
+        <p id="reward-code" class="reward-code"></p>
+        <div id="qr-code" class="qr-code"></div>
+        <button id="download-qr-btn" class="button outline" type="button">
+          Download QR Code
+        </button>
+        <p class="remaining-points-text">
+          Remaining points:
+          <span id="remaining-points"></span>
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          &copy; <span id="year">2025</span> ReCircle Singapore. All rights
+          reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Main scripts -->
+    <script src="script.js"></script>
+    <script>
+      // Initialize navigation and user menu
+      document.addEventListener('DOMContentLoaded', function () {
+        updateNav();
+        initUserMenu();
+        // Update year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        // Retrieve last reward details
+        const data = JSON.parse(
+          localStorage.getItem('recircle_last_reward') || 'null'
+        );
+        if (!data) {
+          // If there is no reward data, redirect back to dashboard
+          window.location.href = 'dashboard.html';
+          return;
+        }
+        // Display code
+        document.getElementById('reward-code').textContent = data.code;
+        // Generate QR code
+        const qrContainer = document.getElementById('qr-code');
+        // Remove any existing nodes (in case of reload)
+        qrContainer.innerHTML = '';
+        new QRCode(qrContainer, {
+          text: data.code,
+          width: 160,
+          height: 160,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+        });
+        // Show remaining points for current user
+        const users = getUsers();
+        const currentUser = localStorage.getItem('recircle_current_user');
+        let remaining = 0;
+        if (users && currentUser && users[currentUser]) {
+          remaining = users[currentUser].points;
+        }
+        document.getElementById('remaining-points').textContent = remaining;
+        // Hook download button to download QR code as image
+        document
+          .getElementById('download-qr-btn')
+          .addEventListener('click', function () {
+            const canvas = qrContainer.querySelector('canvas');
+            if (!canvas) return;
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = (data.reward || 'reward') + '-qr.png';
+            link.click();
+          });
+      });
+    </script>
+  </body>
+</html>

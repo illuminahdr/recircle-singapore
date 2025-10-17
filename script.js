@@ -181,15 +181,27 @@ function loadDashboard() {
   redeemButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const cost = parseInt(btn.getAttribute('data-cost'), 10);
+      // Identify which reward is being redeemed
+      const rewardType = btn.getAttribute('data-reward');
       const messageEl = document.getElementById('redeem-message');
       if (user.points >= cost) {
+        // Deduct points and persist
         user.points -= cost;
         pointsEl.textContent = user.points;
         users[username] = user;
         saveUsers(users);
-        messageEl.textContent = 'Reward redeemed! Thank you for recycling.';
-        messageEl.style.color = 'var(--primary-color)';
+        // Generate a unique code for this reward (prefix RC + 8 random characters)
+        const code =
+          'RC' + Math.random().toString(36).substr(2, 8).toUpperCase();
+        // Store the last redeemed reward details so reward.html can access them
+        localStorage.setItem(
+          'recircle_last_reward',
+          JSON.stringify({ reward: rewardType || '', code: code })
+        );
+        // Redirect user to the reward page to view their code and QR
+        window.location.href = 'reward.html';
       } else {
+        // Not enough points, show error message
         messageEl.textContent = 'Not enough points to redeem this reward.';
         messageEl.style.color = '#c00';
       }

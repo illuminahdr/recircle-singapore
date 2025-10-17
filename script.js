@@ -20,17 +20,40 @@ function saveUsers(users) {
 // hides the account, login and logout links accordingly.
 function updateNav() {
   const currentUser = localStorage.getItem('recircle_current_user');
+  // Update legacy nav if it exists (before the dropdown refactor)
   const navLogin = document.getElementById('nav-login');
   const navDashboard = document.getElementById('nav-dashboard');
   const navLogout = document.getElementById('nav-logout');
+  if (navLogin || navDashboard || navLogout) {
+    if (currentUser) {
+      if (navDashboard) navDashboard.style.display = '';
+      if (navLogout) navLogout.style.display = '';
+      if (navLogin) navLogin.style.display = 'none';
+    } else {
+      if (navDashboard) navDashboard.style.display = 'none';
+      if (navLogout) navLogout.style.display = 'none';
+      if (navLogin) navLogin.style.display = '';
+    }
+  }
+
+  // Update new user-menu dropdown items
+  updateUserMenu();
+}
+
+// Show/hide user menu items depending on login state
+function updateUserMenu() {
+  const currentUser = localStorage.getItem('recircle_current_user');
+  const accountItem = document.getElementById('menu-account');
+  const loginItem = document.getElementById('menu-login');
+  const logoutItem = document.getElementById('menu-logout');
   if (currentUser) {
-    if (navDashboard) navDashboard.style.display = '';
-    if (navLogout) navLogout.style.display = '';
-    if (navLogin) navLogin.style.display = 'none';
+    if (accountItem) accountItem.style.display = 'block';
+    if (logoutItem) logoutItem.style.display = 'block';
+    if (loginItem) loginItem.style.display = 'none';
   } else {
-    if (navDashboard) navDashboard.style.display = 'none';
-    if (navLogout) navLogout.style.display = 'none';
-    if (navLogin) navLogin.style.display = '';
+    if (accountItem) accountItem.style.display = 'none';
+    if (logoutItem) logoutItem.style.display = 'none';
+    if (loginItem) loginItem.style.display = 'block';
   }
 }
 
@@ -66,6 +89,44 @@ if (authForm) {
       }, 1000);
     }
   });
+}
+
+// Toggle user dropdown menu when user icon is clicked
+function initUserMenu() {
+  const toggleButton = document.getElementById('user-menu-toggle');
+  const dropdown = document.getElementById('user-menu');
+  if (!toggleButton || !dropdown) return;
+  // Show/hide on click
+  toggleButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+    } else {
+      dropdown.style.display = 'block';
+    }
+  });
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (dropdown.style.display === 'block') {
+      dropdown.style.display = 'none';
+    }
+  });
+  // Prevent closing when clicking inside dropdown
+  dropdown.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+  // Hook logout in dropdown
+  const logoutItem = document.getElementById('menu-logout');
+  if (logoutItem) {
+    logoutItem.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('recircle_current_user');
+      updateNav();
+      // Close menu and redirect home
+      dropdown.style.display = 'none';
+      window.location.href = 'index.html';
+    });
+  }
 }
 
 function showAuthMessage(message, success = false) {
@@ -134,17 +195,7 @@ function loadDashboard() {
       }
     });
   });
-  // Logout link (shared nav item)
-  const logoutLink = document.getElementById('nav-logout');
-  if (logoutLink) {
-    logoutLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      // clear current user and update nav
-      localStorage.removeItem('recircle_current_user');
-      updateNav();
-      window.location.href = 'index.html';
-    });
-  }
+  // Legacy logout link (if present) is handled by initUserMenu; no action here
 }
 
 // If on dashboard page, load dashboard
@@ -160,4 +211,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('user-name')) {
     loadDashboard();
   }
+  // Initialise dropdown menu toggle handlers
+  initUserMenu();
 });

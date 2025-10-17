@@ -19,11 +19,17 @@
       <div class="container">
         <h1 class="logo">ReCircle Singapore</h1>
         <nav class="navigation">
-          <!-- Unified navigation. The script handles visibility of account/login/logout links -->
+          <!-- Home link always visible -->
           <a href="index.html" class="nav-link">Home</a>
-          <a href="dashboard.html" class="nav-link" id="nav-dashboard">Account</a>
-          <a href="login.html" class="nav-link active" id="nav-login">Login</a>
-          <a href="#" class="nav-link" id="nav-logout">Logout</a>
+          <!-- User menu with dropdown. The script toggles items based on login state -->
+          <div class="user-menu">
+            <i class="fas fa-user-circle user-icon" id="user-menu-toggle" aria-hidden="true"></i>
+            <div class="user-dropdown" id="user-menu">
+              <a href="dashboard.html" id="menu-account">Account</a>
+              <a href="login.html" id="menu-login">Login</a>
+              <a href="#" id="menu-logout">Logout</a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

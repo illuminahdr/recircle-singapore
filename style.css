@@ -59,6 +59,7 @@ a {
 
 .navigation {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -71,6 +72,64 @@ a {
 .nav-link:hover,
 .nav-link.active {
   border-bottom-color: var(--primary-color);
+}
+
+/* User menu and dropdown */
+.user-menu {
+  position: relative;
+}
+
+.user-icon {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.user-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.4rem);
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  padding: 0.3rem 0;
+  display: none;
+  min-width: 150px;
+  z-index: 200;
+}
+
+.user-dropdown a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: var(--text-color);
+  white-space: nowrap;
+}
+
+.user-dropdown a:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Additional informational sections */
+.vision,
+.join {
+  background-color: #ffffff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.rewards {
+  background-color: var(--secondary-color);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.vision p,
+.rewards p,
+.join p {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  color: var(--text-color);
 }
 
 /* Hero section */

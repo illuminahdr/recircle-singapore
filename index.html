@@ -20,11 +20,17 @@
       <div class="container">
         <h1 class="logo">ReCircle Singapore</h1>
         <nav class="navigation">
-          <!-- Unified navigation. Items are shown/hidden by script.js based on login state -->
+          <!-- Home link always visible -->
           <a href="index.html" class="nav-link active">Home</a>
-          <a href="dashboard.html" class="nav-link" id="nav-dashboard">Account</a>
-          <a href="login.html" class="nav-link" id="nav-login">Login</a>
-          <a href="#" class="nav-link" id="nav-logout">Logout</a>
+          <!-- User menu: clicking the icon toggles a dropdown with account options -->
+          <div class="user-menu">
+            <i class="fas fa-user-circle user-icon" id="user-menu-toggle" aria-hidden="true"></i>
+            <div class="user-dropdown" id="user-menu">
+              <a href="dashboard.html" id="menu-account">Account</a>
+              <a href="login.html" id="menu-login">Login</a>
+              <a href="#" id="menu-logout">Logout</a>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
@@ -97,6 +103,46 @@
             Together with town councils, schools and community partners, we’re
             building a cleaner, low‑waste city. Join us to make a difference!
           </p>
+        </div>
+      </section>
+
+      <!-- Vision section -->
+      <section class="vision">
+        <div class="container">
+          <h3 class="section-title">Our Vision</h3>
+          <p>
+            ReCircle Singapore envisions a city where recycling is effortless,
+            rewarding and trustworthy. By combining smart kiosks with an
+            intuitive digital platform, we make sustainability part of your
+            everyday routine.
+          </p>
+        </div>
+      </section>
+
+      <!-- Rewards & Partnerships section -->
+      <section class="rewards">
+        <div class="container">
+          <h3 class="section-title">Rewards &amp; Partnerships</h3>
+          <p>
+            Earn points for every bottle, can or piece of clean plastic you
+            recycle. Redeem your credits for transport vouchers, retail
+            discounts and community experiences. We work with local
+            businesses and agencies to bring you the best perks as you help
+            the planet.
+          </p>
+        </div>
+      </section>
+
+      <!-- Join Us section -->
+      <section class="join">
+        <div class="container">
+          <h3 class="section-title">Join the Movement</h3>
+          <p>
+            More than 5 000 users have already joined and 15 smart kiosks are
+            deployed across Singapore. Become part of ReCircle and help us
+            build a low‑waste city.
+          </p>
+          <a href="login.html" class="button primary">Create an Account</a>
         </div>
       </section>
     </main>

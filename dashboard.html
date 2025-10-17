@@ -49,26 +49,64 @@
         </div>
         <div class="voucher-section" id="voucher-section" hidden>
           <h3>Available Rewards</h3>
-          <ul class="voucher-list">
-            <li>
-              <strong>Transit Voucher</strong> – 50 points
-              <button class="button outline redeem-option" data-cost="50">
-                Redeem
-              </button>
-            </li>
-            <li>
-              <strong>Retail Discount</strong> – 75 points
-              <button class="button outline redeem-option" data-cost="75">
-                Redeem
-              </button>
-            </li>
-            <li>
-              <strong>Community Event Pass</strong> – 100 points
-              <button class="button outline redeem-option" data-cost="100">
-                Redeem
-              </button>
-            </li>
-          </ul>
+          <!-- Rewards grid with icons, descriptions and redeem buttons -->
+          <div class="rewards-grid">
+            <!-- Transit Voucher -->
+            <div class="reward-card">
+              <div class="icon-container">
+                <i class="fas fa-bus fa-2x" aria-hidden="true"></i>
+              </div>
+              <div class="reward-content">
+                <h4>Transit Voucher</h4>
+                <p class="reward-description">
+                  Enjoy free bus and MRT rides around the city. Redeem this
+                  voucher for seamless journeys on Singapore’s public transport.
+                </p>
+                <p class="points-required">50 points</p>
+                <button class="button outline redeem-option" data-cost="50">
+                  Redeem
+                </button>
+              </div>
+            </div>
+
+            <!-- Retail Discount -->
+            <div class="reward-card">
+              <div class="icon-container">
+                <i class="fas fa-shopping-bag fa-2x" aria-hidden="true"></i>
+              </div>
+              <div class="reward-content">
+                <h4>Retail Discount</h4>
+                <p class="reward-description">
+                  Save on sustainable products from our partner retailers. Use
+                  your points to get discounts on eco‑friendly goods and daily
+                  essentials.
+                </p>
+                <p class="points-required">75 points</p>
+                <button class="button outline redeem-option" data-cost="75">
+                  Redeem
+                </button>
+              </div>
+            </div>
+
+            <!-- Community Event Pass -->
+            <div class="reward-card">
+              <div class="icon-container">
+                <i class="fas fa-calendar-check fa-2x" aria-hidden="true"></i>
+              </div>
+              <div class="reward-content">
+                <h4>Community Event Pass</h4>
+                <p class="reward-description">
+                  Join exclusive community clean‑up events and sustainability
+                  workshops. Connect with like‑minded individuals and make a
+                  positive impact together.
+                </p>
+                <p class="points-required">100 points</p>
+                <button class="button outline redeem-option" data-cost="100">
+                  Redeem
+                </button>
+              </div>
+            </div>
+          </div>
           <p id="redeem-message" class="redeem-message"></p>
         </div>
       </div>

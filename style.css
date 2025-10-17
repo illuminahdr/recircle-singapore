@@ -451,6 +451,60 @@ a {
   color: var(--primary-dark);
 }
 
+/*
+  Rewards cards styling on the dashboard page
+  The rewards section displays available rewards as cards with icons,
+  descriptions and redeem buttons. The grid is responsive, stacking on
+  smaller screens. Each card has a soft border, subtle shadow and uses
+  the primary colour for its icon.
+*/
+.rewards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.reward-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  flex: 1 1 calc(33% - 1rem);
+  min-width: 260px;
+}
+
+.reward-card .icon-container {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.reward-card .reward-content h4 {
+  margin-top: 0;
+  margin-bottom: 0.25rem;
+  font-size: 1.1rem;
+}
+
+.reward-card .reward-description {
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.reward-card .points-required {
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .reward-card {
+    flex: 1 1 100%;
+  }
+}
+
 /* Footer */
 .site-footer {
   background-color: #ffffff;
